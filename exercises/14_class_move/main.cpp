@@ -26,6 +26,7 @@ public:
     // TODO: 实现移动赋值
     // NOTICE: ⚠ 注意移动到自身问题 ⚠
     DynFibonacci &operator=(DynFibonacci &&other) noexcept {
+        if (cache == other.cache) return *this;
         delete[] cache;
         cache = other.cache;
         other.cache = nullptr;
